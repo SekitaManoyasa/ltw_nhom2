@@ -1,0 +1,26 @@
+﻿@model EcommerceStore_Nhóm2.Models.ViewModel.HomeProductVm
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Template.cshtml";
+}
+
+<section class="container-fluid banner">
+    <div class="banner-container">
+        @*Thêm banner hay j đó*@ 
+    </div>
+</section>
+
+<section class="container-fluid searchProd">
+    <h2>Tìm kiếm sản phẩm</h2>
+    @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+    {
+        <div class="form-group search-container">
+            @Html.TextBoxFor(m => m.SearchTerm, new { @class = "search-input", placeholder = "Nhập tên,mô tả hoặc loại sản phẩm" })
+            <button type="submit" class="search-button">Tìm kiếm</button>
+        </div>
+    }
+
+</section>
+@Html.Partial("PVFeatureProduct", Model)
+
+@Html.Partial("PVNewProduct", Model)
